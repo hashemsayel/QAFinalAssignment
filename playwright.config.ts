@@ -1,9 +1,8 @@
-import 'dotenv/config'
-
 import { defineConfig, devices } from '@playwright/test'
-import dotenv from 'dotenv'
+import * as dotenv from 'dotenv'
+import * as path from 'path'
 
-dotenv.config()
+dotenv.config({ path: path.resolve(__dirname, '.', '.env') })
 
 export default defineConfig({
   testDir: './tests',
@@ -17,7 +16,7 @@ export default defineConfig({
   workers: process.env.CI ? 1 : undefined,
   reporter: [['html'], ['list']],
   use: {
-    baseURL: process.env.BASE_URL,
+    baseURL: 'https://www.saucedemo.com',
     trace: 'on-first-retry',
     screenshot: 'only-on-failure',
     video: 'retain-on-failure'

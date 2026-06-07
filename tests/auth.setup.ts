@@ -7,8 +7,8 @@ setup('save authenticated state', async ({ page }) => {
   await loginPage.open()
 
   await loginPage.login(
-    process.env.SAUCE_USERNAME!,
-    process.env.SAUCE_PASSWORD!
+    'standard_user',
+    'secret_sauce'
   )
 
   await loginPage.expectLoggedIn()

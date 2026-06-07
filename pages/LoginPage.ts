@@ -3,10 +3,9 @@ import { Page, expect } from '@playwright/test'
 export class LoginPage {
   constructor(private page: Page) {}
 
-  async open() {
-    await this.page.goto('/')
-  }
-
+async open() {
+  await this.page.goto('https://www.saucedemo.com')
+}
   async login(username: string, password: string) {
     await this.page.locator('[data-test="username"]').fill(username)
     await this.page.locator('[data-test="password"]').fill(password)
